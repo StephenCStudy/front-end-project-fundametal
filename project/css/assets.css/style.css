@@ -1,0 +1,44 @@
+/* Thanh Điều Hướng Chuẩn Hóa */
+header {
+    background-color: #222;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    
+}
+
+.navbar {
+    display: flex;  
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #222;
+    color: white;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-left: 16px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-links a {
+    color: #ccc;
+    text-decoration: none;
+    padding: 0 15px;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: white;
+}
+#submit{
+    text-decoration: none;
+    color: white;
+}
+/* ****************************************** */
