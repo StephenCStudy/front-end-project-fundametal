@@ -1,131 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QuizzForge</title>
-    <link rel="stylesheet" href="../../css/assets.css/reset.css">
-    <link rel="stylesheet" href="../../css/add_test_page.css">
-    <link rel="stylesheet" href="../../css/assets.css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- bootstrap -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QuizzForge-addNewTest</title>
+  <link rel="stylesheet" href="../../css/assets.css/reset.css">
+  <link rel="stylesheet" href="../../css/add_test_page.css">
+  <link rel="stylesheet" href="../../css/assets.css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- bootstrap -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
 </head>
+
 <body>
-    <header class="navbar p-3">
-        <div class="logo">QuizzForge</div>
-        <div class="nav-links">
-            <a href="./category_page.html">Danh mục</a>
-            <a href="./test_page.html" class="active">Bài test</a>
-            <a href="" data-bs-toggle="modal" data-bs-target="#signout" onclick="logout()">Đăng xuất</a>
+  <header class="navbar p-3">
+    <div class="logo">QuizzForge</div>
+    <div class="nav-links">
+      <a href="./category_page.html">Danh mục</a>
+      <a href="./test_page.html" class="active"> Bài test</a>
+      <a href="" data-bs-toggle="modal" data-bs-target="#signout"><i class="fa-solid fa-power-off"></i> Đăng xuất</a>
 
-        </div>
-    </header>
-    
-    <div class="container">
-        <h1 class="page-title">Tạo bài test</h1>
-        
-        <div class="form-group">
-            <label for="test-name" class="form-label">Tên bài test</label>
-            <input type="text" id="test-name" class="form-control" placeholder="Điền tên bài test">
-        </div>
-        
-        <div class="form-row">
-            <div class="form-col">
-                <label for="category" class="form-label">Danh mục</label>
-                <select id="category" class="select-dropdown">
-                    <option>Chọn danh mục</option>
-                    <option>Lịch sử</option>
-                    <option>Địa lý</option>
-                    <option>Khoa học</option>
-                    <option>Toán học</option>
-                </select>
-            </div>
-            <div class="form-col">
-                <label for="time-limit" class="form-label">Thời gian (phút)</label>
-                <input type="number" id="time-limit" class="form-control" value="10">
-            </div>
-        </div>
-        
-        <div class="questions-section">
-            <h2 class="section-title">Quản lý câu hỏi</h2>
-            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addNew" id="add-question">Thêm câu hỏi</button>
-            <table class="questions-table">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Câu hỏi</th>
-                        <th>Hành động</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>What is the capital of France?</td>
-                        <td class="action-buttons">
-                            <button class="btn btn-warning">Sửa</button>
-                            <button class="btn btn-danger">Xóa</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Which planet is known as the Red Planet?</td>
-                        <td class="action-buttons">
-                            <button class="btn btn-warning">Sửa</button>
-                            <button class="btn btn-danger">Xóa</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Which planet is known as the Red Planet?</td>
-                        <td class="action-buttons">
-                            <button class="btn btn-warning">Sửa</button>
-                            <button class="btn btn-danger">Xóa</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>Which planet is known as the Red Planet?</td>
-                        <td class="action-buttons">
-                            <button class="btn btn-warning">Sửa</button>
-                            <button class="btn btn-danger">Xóa</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>Which planet is known as the Red Planet?</td>
-                        <td class="action-buttons">
-                            <button class="btn btn-warning">Sửa</button>
-                            <button class="btn btn-danger">Xóa</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        
-        <div class="save-container" onclick="location.href='./test_page.html'">
-            <button class="bookmarkBtn" style="margin-left: 1200px;">
-                <span class="IconContainer">
-                  <svg viewBox="0 0 384 512" height="0.9em" class="icon">
-                    <path
-                      d="M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z"
-                    ></path>
-                  </svg>
-                </span>
-                <p class="text" style="margin-top: 12px;">Lưu</p>
-              </button>
-              
-        </div>
     </div>
-    
-    <footer class="footer">
-        <p>© 2025 Quiz App. All rights reserved.</p>
-    </footer>
+  </header>
+
+  <div class="container">
+    <h1 class="page-title">Tạo bài test</h1>
+
+    <div class="form-group">
+      <label for="test-name" class="form-label">Tên bài test</label>
+      <input type="text" id="test-name" class="form-control" placeholder="Điền tên bài test">
+    </div>
+
+    <div class="form-row">
+      <div class="form-col">
+        <label for="category" class="form-label">Danh mục</label>
+        <select id="category" class="select-dropdown">
+          <option>Chọn danh mục</option>
+          <option>Lịch sử</option>
+          <option>Địa lý</option>
+          <option>Khoa học</option>
+          <option>Toán học</option>
+        </select>
+      </div>
+      <div class="form-col">
+        <label for="time-limit" class="form-label">Thời gian (phút)</label>
+        <input type="number" id="time-limit" class="form-control" value="10">
+      </div>
+    </div>
+
+    <div class="questions-section">
+      <h2 class="section-title">Quản lý câu hỏi</h2>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addNew" id="add-question">Thêm câu
+        hỏi</button>
+      <table class="questions-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Câu hỏi</th>
+            <th>Hành động</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>What is the capital of France?</td>
+            <td class="action-buttons">
+              <button class="btn btn-warning">Sửa</button>
+              <button class="btn btn-danger">Xóa</button>
+            </td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Which planet is known as the Red Planet?</td>
+            <td class="action-buttons">
+              <button class="btn btn-warning">Sửa</button>
+              <button class="btn btn-danger">Xóa</button>
+            </td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Which planet is known as the Red Planet?</td>
+            <td class="action-buttons">
+              <button class="btn btn-warning">Sửa</button>
+              <button class="btn btn-danger">Xóa</button>
+            </td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>Which planet is known as the Red Planet?</td>
+            <td class="action-buttons">
+              <button class="btn btn-warning">Sửa</button>
+              <button class="btn btn-danger">Xóa</button>
+            </td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>Which planet is known as the Red Planet?</td>
+            <td class="action-buttons">
+              <button class="btn btn-warning">Sửa</button>
+              <button class="btn btn-danger">Xóa</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="save-container" onclick="location.href='./test_page.html'">
+      <button class="bookmarkBtn" style="margin-left: 1200px;">
+        <span class="IconContainer">
+          <svg viewBox="0 0 384 512" height="0.9em" class="icon">
+            <path
+              d="M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z">
+            </path>
+          </svg>
+        </span>
+        <p class="text" style="margin-top: 12px;">Lưu</p>
+      </button>
+
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>© 2025 Quiz App. All rights reserved.</p>
+  </footer>
 
 
-  
-  
-  <!-- Modal -->
+
+
+  <!-- Modal-add -->
   <div class="modal fade" id="addNew" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -142,23 +145,34 @@
             <label for="answer" class="form-label">Câu trả lời</label>
 
             <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1"> <input class="form-check-input input-group-text" type="checkbox" id="checkboxNoLabel" value="" aria-label="..."></span>
-                <input type="text" class="form-control" placeholder="Nhập câu trả lời">
+              <span class="input-group-text" id="answer01"> <input class="form-check-input input-group-text"
+                  type="checkbox" id="checkboxNoLabel" value="" aria-label="..."></span>
+              <input type="text" class="form-control" placeholder="Nhập câu trả lời">
+              <i class="fa-solid fa-trash-can"></i>
             </div>
             <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1"> <input class="form-check-input input-group-text" type="checkbox" id="checkboxNoLabel" value="" aria-label="..."></span>
-                <input type="text" class="form-control" placeholder="Nhập câu trả lời">
+              <span class="input-group-text" id="answer02"> <input class="form-check-input input-group-text"
+                  type="checkbox" id="checkboxNoLabel" value="" aria-label="..."></span>
+              <input type="text" class="form-control" placeholder="Nhập câu trả lời">
+              <i class="fa-solid fa-trash-can"></i>
+
             </div>
             <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1"> <input class="form-check-input input-group-text" type="checkbox" id="checkboxNoLabel" value="" aria-label="..."></span>
-                <input type="text" class="form-control" placeholder="Nhập câu trả lời">
+              <span class="input-group-text" id="answer03"> <input class="form-check-input input-group-text"
+                  type="checkbox" id="checkboxNoLabel" value="" aria-label="..."></span>
+              <input type="text" class="form-control" placeholder="Nhập câu trả lời">
+              <i class="fa-solid fa-trash-can"></i>
+
             </div>
             <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1"> <input class="form-check-input input-group-text" type="checkbox" id="checkboxNoLabel" value="" aria-label="..."></span>
-                <input type="text" class="form-control" placeholder="Nhập câu trả lời">
+              <span class="input-group-text" id="answer04"> <input class="form-check-input input-group-text"
+                  type="checkbox" id="checkboxNoLabel" value="" aria-label="..."></span>
+              <input type="text" class="form-control" placeholder="Nhập câu trả lời">
+              <i class="fa-solid fa-trash-can"></i>
+
             </div>
 
-              
+
             <button class="btn btn-secondary">Thêm câu trả lời</button>
           </div>
         </div>
@@ -171,8 +185,8 @@
   </div>
 
 
-   <!-- Modal-signout -->
-   <div class="modal fade" id="signout" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <!-- Modal-signout -->
+  <div class="modal fade" id="signout" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -180,16 +194,21 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body" style="color: red;">
-            dữ liệu vẫn được lưu lại
+          dữ liệu vẫn được lưu lại
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Không</button>
-          <button type="button" class="btn btn-primary"><a href="../auth/login_page.html" id="submit">Có</a></button>
+          <button type="button" class="btn btn-primary" id="submit" onclick="logout()">Có</a></button>
+
         </div>
       </div>
     </div>
   </div>
-<!-- JavaScript-bootstrap -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- JavaScript-bootstrap -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../../js/login.js"></script>
+  <script src="../../js/auth_serviec.js"></script>
+
 </body>
+
 </html>

@@ -42,3 +42,88 @@ header {
     color: white;
 }
 /* ****************************************** */
+/* icon - sign out */
+.fa-power-off{
+    transform: scale(0.9);
+}
+.fa-power-off:hover{
+    transform: scale(1.2);
+}
+
+
+/* CSS cho phân trang và các phần tử trong bảng */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    margin: 0 5px;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #333;
+    background-color: #fff;
+    border: 2px solid #ddd;  /* Boder rộng hơn */
+    transition: all 0.3s;
+}
+
+.pagination a:hover {
+    background-color: #f5f5f5;
+    font-weight: bold;  /* Làm đậm chữ khi hover */
+}
+
+.pagination a.active {
+    background-color: #007bff;  /* Màu xanh khi trang được chọn */
+    border-color: #007bff;
+    color: white;
+}
+
+.pagination a.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+/* Các mũi tên phân trang */
+.pagination .page-link i {
+    font-size: 1.2rem;  /* Kích thước của icon */
+}
+
+/* Nút "pervious" và "next" */
+.pagination .prev,
+.pagination .next {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 40px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: all 0.3s;
+    margin-left: 5px; 
+    margin-right: 10px;
+}
+
+.pagination .prev:hover, .pagination .next:hover {
+    background-color: #f5f5f5;
+}
+
+/* Nút "Previous" và "Next" có mũi tên */
+.pagination .prev i, .pagination .next i {
+    font-size: 20px; /* Kích thước icon mũi tên */
+}
+
+/* Tạo hiệu ứng khi hover trên phân trang */
+.pagination .prev:hover,
+.pagination .next:hover {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+

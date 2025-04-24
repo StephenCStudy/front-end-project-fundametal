@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QuizzForge - Quản lý danh mục</title>
+    <title>QuizzForge-Category</title>
     <link rel="stylesheet" href="../../css/assets.css/reset.css">
     <link rel="stylesheet" href="../../css/category_page.css">
     <link rel="stylesheet" href="../../css/assets.css/style.css">
@@ -19,7 +19,8 @@
         <div class="nav-links">
             <a href="./category_page.html">Danh mục</a>
             <a href="./test_page.html" class="active">Bài test</a>
-            <a href="" data-bs-toggle="modal" data-bs-target="#signout">Đăng xuất</a>
+            <a href="" data-bs-toggle="modal" data-bs-target="#signout"><i class="fa-solid fa-power-off"></i> Đăng
+                xuất</a>
 
         </div>
     </header>
@@ -29,7 +30,7 @@
             <h1>Quản lý danh mục</h1>
 
             <div class="action-buttons">
-                <button type="button" class="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <button type="button" class="button" data-bs-toggle="modal" data-bs-target="#addCate">
                     <span class="button__text">Danh mục</span>
                     <span class="button__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24"
                             stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor"
@@ -50,80 +51,25 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td><i class="fas fa-history"></i> Lịch sử</td>
-                            <td class="actions">
-                                <button class="btn-edit">Sửa</button>
-                                <button class="btn-delete">Xóa</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td><i class="fas fa-flask"></i> Khoa học</td>
-                            <td class="actions">
-                                <button class="btn-edit">Sửa</button>
-                                <button class="btn-delete">Xóa</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td><i class="fas fa-chart-line"></i> Giải trí</td>
-                            <td class="actions">
-                                <button class="btn-edit">Sửa</button>
-                                <button class="btn-delete">Xóa</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td><i class="fas fa-home"></i> Đời sống</td>
-                            <td class="actions">
-                                <button class="btn-edit">Sửa</button>
-                                <button class="btn-delete">Xóa</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td><i class="fas fa-history"></i> Lịch sử</td>
-                            <td class="actions">
-                                <button class="btn-edit">Sửa</button>
-                                <button class="btn-delete">Xóa</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>6</td>
-                            <td><i class="fas fa-flask"></i> Khoa học</td>
-                            <td class="actions">
-                                <button class="btn-edit">Sửa</button>
-                                <button class="btn-delete">Xóa</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>7</td>
-                            <td><i class="fas fa-chart-line"></i> Giải trí</td>
-                            <td class="actions">
-                                <button class="btn-edit">Sửa</button>
-                                <button class="btn-delete">Xóa</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>8</td>
-                            <td><i class="fas fa-flask"></i> Khoa học</td>
-                            <td class="actions">
-                                <button class="btn-edit">Sửa</button>
-                                <button class="btn-delete">Xóa</button>
-                            </td>
-                        </tr>
+                        <!-- Dữ liệu sẽ được render vào đây -->
                     </tbody>
                 </table>
             </div>
 
-            <div class="pagination">
-                <a href="#" class="active">1</a>
-                <a href="#">2</a>
-                <a href="#">3</a>
-                <a href="#" class="next"><i class="fas fa-chevron-right"></i></a>
+            <div class="pagination" id="pagination">
+                <!-- Nút Previous với mũi tên -->
+                <a href="#" class="prev">
+                    <i class="fas fa-chevron-left"></i> <!-- Mũi tên trái -->
+                </a>
+
+                <!-- Các số trang sẽ được render ở đây -->
+
+                <!-- Nút Next với mũi tên -->
+                <a href="#" class="next">
+                    <i class="fas fa-chevron-right"></i> <!-- Mũi tên phải -->
+                </a>
             </div>
+
         </div>
     </main>
 
@@ -134,62 +80,106 @@
     </footer>
 
 
-    <!-- Button trigger modal -->
-    <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        Launch demo modal
-    </button> -->
 
-    <!-- Modal-add-category -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+    <!-- Modal Sửa danh mục -->
+    <div class="modal fade" id="editCate" tabindex="-1" aria-labelledby="addCateLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Thêm / sửa danh mục</h1>
+                    <h1 class="modal-title fs-5" id="editCateLabel">Sửa danh mục</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <label for="categoryName" class="form-label">Tên danh mục</label>
-                    <input type="text" id="categoryName" class="form-control"
-                        aria-describedby="passwordHelpBlock">
-                    <div id="categoryNameError" class="form-text" style="color: red;">
-                        Tên danh mục đã tồn tại
-                    </div>
-
+                    <input type="text" id="categoryName" class="form-control">
                     <label for="emoji" class="form-label">Emoji</label>
                     <input type="text" id="emoji" class="form-control">
-
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
-                    <button type="button" class="btn btn-primary">Lưu</button>
+                    <button type="button" class="btn btn-primary"
+                        onclick="editCategory(document.getElementById('categoryName').value, document.getElementById('emoji').value)">Lưu</button>
                 </div>
             </div>
         </div>
     </div>
 
-     <!-- Modal-signout -->
-  <div class="modal fade" id="signout" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Bạn chắc chắn muốn đăng xuất</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    <!-- Modal Thêm danh mục -->
+    <div class="modal fade" id="addCate" tabindex="-1" aria-labelledby="editCateLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="addCateLabel">Thêm danh mục</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <label for="addCateName" class="form-label">Tên danh mục</label>
+                    <input type="text" id="addCateName" class="form-control">
+                    <div id="categoryNameError" class="form-text" style="color: red; display: none">Tên danh mục đã tồn
+                        tại</div>
+                    <label for="addCateEmoji" class="form-label">Emoji</label>
+                    <input type="text" id="addCateEmoji" class="form-control">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                    <button type="button" class="btn btn-primary"
+                        onclick="addCategory(document.getElementById('addCateName').value, document.getElementById('addCateEmoji').value)">Lưu</button>
+                </div>
+            </div>
         </div>
-        <div class="modal-body" style="color: red;">
-            dữ liệu vẫn được lưu lại
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Không</button>
-          <button type="button" class="btn btn-primary" id="submit" onclick="logout()">Có</a></button>
-        </div>
-      </div>
     </div>
-  </div>
+
+    <!-- Modal-xóa danh mục -->
+    <div class="modal fade" id="deleteCate" tabindex="-1" aria-labelledby="deleteCateLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteCateLabel">Xác nhận xóa danh mục</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Bạn có chắc chắn muốn xóa danh mục này không?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                    <button type="button" class="btn btn-danger" id="confirm-delete-btn">Xóa</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Modal-signout -->
+    <div class="modal fade" id="signout" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Bạn chắc chắn muốn đăng xuất</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" style="color: red;">
+                    dữ liệu vẫn được lưu lại
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Không</button>
+                    <button type="button" class="btn btn-primary" id="submit" onclick="logout()">Có</a></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 
 
     <!-- JavaScript-bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- <script src="../../js/login.js"></script> -->
+    <script src="../../js/login.js"></script>
+    <script src="../../js/auth_serviec.js"></script>
+    <script src="../../js/category_page.js"></script>
+    <script src="../../js/data_fake.js"></script>
+
 </body>
 
 </html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuizzForge</title>
+    <link rel="stylesheet" href="../../css/doTest_page.css">
+    <link rel="stylesheet" href="../../css/assets.css/reset.css">
+    <link rel="stylesheet" href="../../css/assets.css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+</head>
+
+<body>
+
+    <!-- // thêm các tiền tố qf ( quizzFroge) để tránh xung đột với các css của bootstrap  -->
+
+    <header class="qf-navbar">
+        <div class="qf-logo">QuizzForge</div>
+        <div class="qf-search-bar">
+            <div class="qf-group qf-search">
+                <input placeholder="Tìm kiếm bài test" type="search" class="qf-input">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+        </div>
+        <div class="qf-nav-links">
+            <a href="../../index.html"><i class="fa-solid fa-home"></i> Trang chủ</a>
+            <a href="" data-bs-toggle="modal" data-bs-target="#signout"><i class="fa-solid fa-power-off"></i> Đăng
+                xuất</a>
+        </div>
+    </header>
+
+    <div class="qf-main-container">
+        <div class="qf-sidebar">
+            <div class="qf-sidebar-title">Điều hướng nhanh</div>
+            <div class="qf-sidebar-subtitle">Các câu hỏi:</div>
+            <div class="qf-pagination">
+                <div class="qf-page-button completed">1</div>
+                <div class="qf-page-button completed">2</div>
+                <div class="qf-page-button completed">3</div>
+                <div class="qf-page-button completed">4</div>
+                <div class="qf-page-button completed">5</div>
+                <div class="qf-page-button completed">6</div>
+                <div class="qf-page-button completed">7</div>
+                <div class="qf-page-button completed">8</div>
+                <div class="qf-page-button completed">9</div>
+                <div class="qf-page-button completed">10</div>
+                <div class="qf-page-button active">11</div>
+                <div class="qf-page-button">12</div>
+                <div class="qf-page-button">13</div>
+                <div class="qf-page-button">14</div>
+                <div class="qf-page-button">15</div>
+                <div class="qf-page-button">16</div>
+                <div class="qf-page-button">17</div>
+                <div class="qf-page-button">18</div>
+                <div class="qf-page-button">19</div>
+                <div class="qf-page-button">20</div>
+            </div>
+            <div class="qf-sidebar-note">
+                <p>Dấu (!) đánh dấu các câu hỏi bạn có thể sử dụng để điều hướng.</p>
+                <i class="fa-solid fa-circle-info"></i> Chú thích:
+                <div class="qf-legend">
+                    <div class="qf-legend-item">
+                        <div class="qf-legend-color completed"></div>
+                        <div>Đã làm</div>
+                    </div>
+                    <div class="qf-legend-item">
+                        <div class="qf-legend-color active"></div>
+                        <div>Đang làm</div>
+                    </div>
+                    <div class="qf-legend-item">
+                        <div class="qf-legend-color"></div>
+                        <div>Chưa làm</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="qf-content">
+            <h1 class="qf-quiz-title">Khoa học máy tính</h1>
+
+            <div class="qf-quiz-info">
+                <!-- Để JS render thời gian -->
+                <div>Thời gian: <span id="total-time"></span></div>
+                <div>Còn lại: <span id="remaining-time"></span></div>
+            </div>
+
+            <div class="qf-question-container">
+                <div class="qf-question-header">
+                    <div>Câu hỏi 11 trên 20:</div>
+                    <div class="qf-question-text">Which is the part of the computer system that one can physically
+                        touch?
+                    </div>
+                </div>
+
+                <div class="qf-options-container">
+                    <div class="qf-option">
+                        <input type="radio" id="opt1" name="question1">
+                        <label for="opt1">Data</label>
+                    </div>
+                    <div class="qf-option">
+                        <input type="radio" id="opt2" name="question1">
+                        <label for="opt2">Operating systems</label>
+                    </div>
+                    <div class="qf-option">
+                        <input type="radio" id="opt3" name="question1">
+                        <label for="opt3">Hardware</label>
+                    </div>
+                    <div class="qf-option">
+                        <input type="radio" id="opt4" name="question1">
+                        <label for="opt4">Software</label>
+                    </div>
+                </div>
+
+                <div class="qf-buttons-container">
+                    <button class="qf-btn qf-btn-submit" data-bs-toggle="modal" data-bs-target="#done"><i
+                            class="fa-solid fa-check"></i> Hoàn thành</button>
+                    <div class="qf-navigation-buttons">
+                        <button class="qf-btn qf-btn-back"><i class="fa-solid fa-arrow-left"></i> Trước</button>
+                        <button class="qf-btn qf-btn-next">Tiếp <i class="fa-solid fa-arrow-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="qf-footer">
+        © 2025 Quiz App. All rights reserved.
+    </div>
+
+
+
+    <!-- Modal-submit -->
+    <div class="modal fade" id="done" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel"></h1>
+                    <a href="./home_page.html"><button type="button" class="btn-close" data-bs-dismiss="modal"
+                            aria-label="Close"></button></a>
+                </div>
+                <div class="modal-body">
+                    <h2>Hoàn thành</h2>
+
+                    <div class="result-box success">
+                        <h3>Chúc mừng!</h3>
+                        <p>Bạn đã hoàn thành bài kiểm tra</p>
+                        <div class="score">Điểm của bạn: 85%</div>
+                    </div>
+
+                    <div class="details-section">
+                        <h4>Kết quả cụ thể</h4>
+                        <div class="result-details">
+                            <div class="detail-item">
+                                <span>Tổng số câu hỏi:</span>
+                                <span>20</span>
+                            </div>
+                            <div class="detail-item">
+                                <span>Câu trả lời đúng:</span>
+                                <span>17</span>
+                            </div>
+                            <div class="detail-item">
+                                <span>Câu trả lời sai:</span>
+                                <span>3</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Làm lại</button>
+                    <a href="./home_page.html"><button type="button" class="btn btn-danger">Trang chủ</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal-signout -->
+    <div class="modal fade" id="signout" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Bạn chắc chắn muốn đăng xuất</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" style="color: red;">
+                    dữ liệu vẫn được lưu lại
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Không</button>
+                    <button type="button" class="btn btn-primary" id="submit" onclick="logout()">Có</a></button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript-bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../js/login.js"></script>
+    <script src="../../js/auth_serviec.js"></script>
+
+</body>
+
+</html>
