@@ -98,7 +98,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
-                    <button type="button" class="btn btn-primary"
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
                         onclick="editCategory(document.getElementById('categoryName').value, document.getElementById('emoji').value)">Lưu</button>
                 </div>
             </div>
@@ -123,7 +123,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
-                    <button type="button" class="btn btn-primary"
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
                         onclick="addCategory(document.getElementById('addCateName').value, document.getElementById('addCateEmoji').value)">Lưu</button>
                 </div>
             </div>
@@ -142,8 +142,8 @@
                     Bạn có chắc chắn muốn xóa danh mục này không?
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
-                    <button type="button" class="btn btn-danger" id="confirm-delete-btn">Xóa</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Hủy</button>
+                    <button type="button" class="btn btn-danger" id="confirm-delete-btn" data-bs-dismiss="modal">Xóa</button>
                 </div>
             </div>
         </div>

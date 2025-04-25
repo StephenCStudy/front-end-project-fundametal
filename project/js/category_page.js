@@ -65,7 +65,8 @@ function addCategory(categoryName, categoryEmoji) {
     categories.push(newCategory);
     saveCategoriesToLocalStorage(categories);
     renderCategoryTable();
-    $('#addCate').modal('hide');  // Đóng modal
+    document.getElementById("addCateName").value = ""; // Xóa dữ liệu
+    document.getElementById("addCateEmoji").value = ""; // Xóa dữ liệu emoji 
 }
 
 // Sửa danh mục
@@ -85,7 +86,6 @@ function editCategory(categoryId) {
             category.categoryEmoji = document.getElementById('emoji').value;
             saveCategoriesToLocalStorage(categories);
             renderCategoryTable();  // Render lại bảng sau khi sửa
-            $('#editCate').modal('hide');  // Đóng modal
         };
     }
 }
@@ -94,7 +94,6 @@ function editCategory(categoryId) {
 function confirmDelete(categoryId) {
     document.getElementById('confirm-delete-btn').onclick = function() {
         deleteCategory(categoryId);  // Xóa danh mục
-        $('#deleteCate').modal('hide');  // Đóng modal xác nhận
     };
 }
 
@@ -107,7 +106,6 @@ function deleteCategory(categoryId) {
         categories.splice(categoryIndex, 1);  // Xóa danh mục khỏi mảng
         saveCategoriesToLocalStorage(categories);
         renderCategoryTable();  // Render lại bảng sau khi xóa
-        window.location.href = "category_page.html"; // Trả về trang danh mục
     }
 }
 

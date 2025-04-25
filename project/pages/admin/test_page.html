@@ -19,7 +19,8 @@
         <div class="nav-links">
             <a href="./category_page.html">Danh mục</a>
             <a href="./test_page.html" class="active">Bài test</a>
-            <a href="" data-bs-toggle="modal" data-bs-target="#signout"><i class="fa-solid fa-power-off"></i> Đăng xuất</a>
+            <a href="" data-bs-toggle="modal" data-bs-target="#signout"><i class="fa-solid fa-power-off"></i> Đăng
+                xuất</a>
         </div>
     </header>
 
@@ -40,7 +41,6 @@
             </a>
             <div class="filter-section">
                 <div class="dropdown">
-                    <!-- <button class="btn-dropdown">Sắp xếp theo <i class="fas fa-chevron-down"></i></button> -->
                     <select name="sort" id="sortProduct" class="btn-dropdown">
                         <option value="Sắp xếp theo">Sắp xếp theo</option>
                         <option value="Tên bài test">Tên bài test</option>
@@ -56,7 +56,7 @@
         </div>
 
         <div class="table-container">
-            <table class="quiz-table table table-striped table-hover">
+            <table class="quiz-table table table-striped table-hover data-table">
                 <thead class="table-dark">
                     <tr>
                         <th>ID</th>
@@ -68,136 +68,30 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>History Quiz</td>
-                        <td><span class="category history"><i class="fas fa-book"></i> Lịch sử</span></td>
-                        <td>15</td>
-                        <td>10 min</td>
-                        <td class="actions">
-                            <button class="btn-action btn-edit">Sửa</button>
-                            <button class="btn-action btn-delete">Xóa</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Science Challenge</td>
-                        <td><span class="category science"><i class="fas fa-flask"></i> Khoa học</span></td>
-                        <td>20</td>
-                        <td>15 min</td>
-                        <td class="actions">
-                            <button class="btn-action btn-edit">Sửa</button>
-                            <button class="btn-action btn-delete">Xóa</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Entertainment Trivia</td>
-                        <td><span class="category entertainment"><i class="fas fa-film"></i> Đời sống</span></td>
-                        <td>10</td>
-                        <td>5 min</td>
-                        <td class="actions">
-                            <button class="btn-action btn-edit">Sửa</button>
-                            <button class="btn-action btn-delete">Xóa</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>Entertainment Trivia</td>
-                        <td><span class="category entertainment"><i class="fas fa-film"></i> Đời sống</span></td>
-                        <td>10</td>
-                        <td>5 min</td>
-                        <td class="actions">
-                            <button class="btn-action btn-edit">Sửa</button>
-                            <button class="btn-action btn-delete">Xóa</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>Entertainment Trivia</td>
-                        <td><span class="category entertainment"><i class="fas fa-film"></i> Đời sống</span></td>
-                        <td>10</td>
-                        <td>5 min</td>
-                        <td class="actions">
-                            <button class="btn-action btn-edit">Sửa</button>
-                            <button class="btn-action btn-delete">Xóa</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>6</td>
-                        <td>Entertainment Trivia</td>
-                        <td><span class="category entertainment"><i class="fas fa-film"></i> Đời sống</span></td>
-                        <td>10</td>
-                        <td>5 min</td>
-                        <td class="actions">
-                            <button class="btn-action btn-edit">Sửa</button>
-                            <button class="btn-action btn-delete">Xóa</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>7</td>
-                        <td>Entertainment Trivia</td>
-                        <td><span class="category entertainment"><i class="fas fa-film"></i> Đời sống</span></td>
-                        <td>10</td>
-                        <td>5 min</td>
-                        <td class="actions">
-                            <button class="btn-action btn-edit">Sửa</button>
-                            <button class="btn-action btn-delete">Xóa</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>8</td>
-                        <td>Entertainment Trivia</td>
-                        <td><span class="category entertainment"><i class="fas fa-film"></i> Đời sống</span></td>
-                        <td>10</td>
-                        <td>5 min</td>
-                        <td class="actions">
-                            <button class="btn-action btn-edit">Sửa</button>
-                            <button class="btn-action btn-delete">Xóa</button>
-                        </td>
-                    </tr>
+                    <!-- dữ liệu sẽ được render vào đây -->
                 </tbody>
             </table>
         </div>
 
-        <div class="pagination">
-            <a href="#" class="active">1</a>
-            <a href="#">2</a>
-            <a href="#">3</a>
-            <a href="#"><i class="fas fa-chevron-right"></i></a>
+        <div class="pagination" id="pagination">
+            <!-- Nút Previous với mũi tên -->
+            <a href="#" class="prev">
+                <i class="fas fa-chevron-left"></i> <!-- Mũi tên trái -->
+            </a>
+
+            <!-- Các số trang sẽ được render ở đây -->
+
+            <!-- Nút Next với mũi tên -->
+            <a href="#" class="next">
+                <i class="fas fa-chevron-right"></i> <!-- Mũi tên phải -->
+            </a>
         </div>
+
     </main>
 
     <footer class="footer-content">
         <p>© 2025 QuizzForge. All rights reserved.</p>
     </footer>
-
-
-    <!-- Button trigger modal -->
-    <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        Launch demo modal
-    </button> -->
-
-    <!-- Modal-delete -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Xác nhận xóa</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p>Bạn có chắc chắn muốn xóa bài test này ?</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
-                    <button type="button" class="btn btn-danger">Xóa</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
 
     <!-- Modal-signout -->
     <div class="modal fade" id="signout" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -213,15 +107,17 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Không</button>
                     <button type="button" class="btn btn-primary" id="submit" onclick="logout()">Có</a></button>
-
                 </div>
             </div>
         </div>
     </div>
+
     <!-- JavaScript-bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../../js/login.js"></script>
     <script src="../../js/auth_serviec.js"></script>
+    <script src="../../js/test_page.js"></script>
+    <script src="../../js/data_fake.js"></script>
 
 </body>
 

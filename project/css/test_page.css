@@ -125,37 +125,37 @@ h1 {
     color: #6b46c1;
 }
 
-/* Action buttons */
+/* Action Buttons in Table */
 .actions {
     display: flex;
-    gap: 0.5rem;
+    gap: 8px;
 }
 
-.btn-action {
-    padding: 0.35rem 0.75rem;
-    border-radius: 4px;
+.btn-edit, .btn-delete {
+    padding: 5px 12px;
     border: none;
+    border-radius: 3px;
     cursor: pointer;
-    font-size: 0.85rem;
-    font-weight: 500;
+    font-size: 0.8rem;
+    transition: background-color 0.3s;
 }
 
 .btn-edit {
-    background-color: #ffda79;
-    color: #8a5a00;
+    background-color: #ffc107;
+    color: #212529;
 }
 
 .btn-delete {
-    background-color: #ff7675;
-    color: #900;
+    background-color: #dc3545;
+    color: white;
 }
 
 .btn-edit:hover {
-    background-color: #ffc048;
+    background-color: #e0a800;
 }
 
 .btn-delete:hover {
-    background-color: #e84545;
+    background-color: #c82333;
 }
 
 /* Pagination */
@@ -196,32 +196,12 @@ footer {
     text-align: center;
     padding: 15px 0;
     font-size: 0.8rem;
-    position: relative;
+    position: absolute;
     bottom: 0;
     width: 100%;
 }
 
-/* Responsive adjustments
-@media (max-width: 768px) {
-    .action-bar {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 1rem;
-    }
-    
-    .filter-section {
-        width: 100%;
-        flex-direction: column;
-    }
-    
-    .search-box input {
-        width: 100%;
-    }
-    
-    .table-container {
-        overflow-x: auto;
-    }
-} */
+
 
 
 .button {

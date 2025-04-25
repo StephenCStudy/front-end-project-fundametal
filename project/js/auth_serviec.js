@@ -95,8 +95,8 @@ function logoutUser() {
     // Xóa thông tin đăng nhập ở sesionStorage để đảm bảo đăng xuất hoàn toàn tk admin
     sessionStorage.removeItem("isLogin");
     sessionStorage.removeItem("currentUserId");
-    // localStorage.removeItem("isLogin");
-    // localStorage.removeItem("currentUserId");
+    localStorage.removeItem("isLogin");
+    localStorage.removeItem("currentUserId");
 }
 
 // Đăng ký người dùng mới

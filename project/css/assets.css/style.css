@@ -56,7 +56,11 @@ header {
     display: flex;
     justify-content: center;
     margin-top: 20px;
-}
+    position: absolute;
+    bottom: 100;
+    left: 500px;
+    top: 580px;
+}  
 
 .pagination a {
     display: flex;

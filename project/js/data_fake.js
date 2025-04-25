@@ -3,7 +3,7 @@
 
 // mảng dữ liệu 40 đối tượng của mảng danh mục.
 
-// Dữ liệu mẫu từ data_fake.js
+// Dữ liệu mẫu từ data_fake.js         --- Danh mục ---
 const initialCategories = [
     { id: 1, categoryName: "Chăm sóc sức khỏe", categoryEmoji: "💊" },
     { id: 2, categoryName: "Quản lý", categoryEmoji: "📋" },
@@ -66,10 +66,153 @@ function saveCategoriesToLocalStorage(categories) {
 }
 
 // Gọi hàm khi trang tải
-window.addEventListener('DOMContentLoaded', function() {
+window.addEventListener('DOMContentLoaded', function () {
     initializeCategories();  // Kiểm tra và lưu dữ liệu vào localStorage nếu chưa có
 });
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Dữ liệu mẫu từ data_fake.js         --- bài test ---
+const sample_data = [
+    // Câu hỏi về công nghệ
+    {
+      content: "Trong các hệ điều hành dưới đây, hệ điều hành nào được phát triển bởi Microsoft?",
+      answers: ["Linux", "macOS", "Windows", "Android"],
+      correct: 3
+    },
+    {
+      content: "Ngôn ngữ lập trình nào được sử dụng chủ yếu trong phát triển web động?",
+      answers: ["Python", "JavaScript", "Java", "Ruby"],
+      correct: 2
+    },
+    {
+      content: "Hệ thống mạng nào dưới đây được sử dụng trong môi trường doanh nghiệp?",
+      answers: ["LAN", "WAN", "VPN", "All of the above"],
+      correct: 4
+    },
+    {
+      content: "Công nghệ 5G mang đến lợi ích gì?",
+      answers: ["Tăng tốc độ truyền tải dữ liệu", "Giảm độ trễ trong mạng", "Hỗ trợ kết nối Internet vạn vật (IoT)", "Tất cả đều đúng"],
+      correct: 4
+    },
+    
+    // Câu hỏi về toán học
+    {
+      content: "Phương trình nào là phương trình bậc hai?",
+      answers: ["y = 3x + 5", "y = x^2 + 4x + 4", "y = 5x^3", "y = 2x + 3"],
+      correct: 2
+    },
+    {
+      content: "Hệ phương trình nào dưới đây có nghiệm duy nhất?",
+      answers: ["x + y = 5, x - y = 1", "x + y = 6, x - y = 6", "x + y = 7, x - y = 1", "x + y = 2, x - y = 3"],
+      correct: 1
+    },
+    {
+      content: "Hình học nào có công thức tính diện tích là A = πr^2?",
+      answers: ["Hình vuông", "Hình tròn", "Hình tam giác", "Hình chữ nhật"],
+      correct: 2
+    },
+    {
+      content: "Phương trình nào là phương trình hàm số bậc nhất?",
+      answers: ["y = x^2", "y = 2x + 5", "y = x^3", "y = 4x^2 - 3x"],
+      correct: 2
+    },
+  
+    // Câu hỏi về lịch sử
+    {
+      content: "Ngày nào là Ngày Quốc khánh Việt Nam?",
+      answers: ["2 tháng 9", "30 tháng 4", "1 tháng 5", "10 tháng 3"],
+      correct: 1
+    },
+    {
+      content: "Ai là người lãnh đạo phong trào Cần Vương?",
+      answers: ["Tôn Thất Thuyết", "Trần Hưng Đạo", "Nguyễn Huệ", "Phan Bội Châu"],
+      correct: 1
+    },
+    {
+      content: "Sự kiện nào xảy ra vào ngày 30 tháng 4 năm 1975?",
+      answers: ["Giải phóng miền Nam", "Ngày Quốc tế Lao động", "Ngày Tết Nguyên Đán", "Ngày lễ Quốc khánh"],
+      correct: 1
+    },
+    {
+      content: "Ai là người sáng lập ra đế chế Mông Cổ?",
+      answers: ["Genghis Khan", "Tamerlane", "Kublai Khan", "Marco Polo"],
+      correct: 1
+    },
+  
+    // Câu hỏi về văn học
+    {
+      content: "Tác phẩm nào là của nhà văn Nguyễn Du?",
+      answers: ["Truyện Kiều", "Lão Hạc", "Chí Phèo", "Đoạn trường tân thanh"],
+      correct: 1
+    },
+    {
+      content: "Ai là tác giả của tác phẩm 'Những ngày thơ ấu'?",
+      answers: ["Tô Hoài", "Nguyễn Du", "Phan Bội Châu", "Nam Cao"],
+      correct: 1
+    },
+    {
+      content: "Chủ đề chính của tác phẩm 'Chí Phèo' là gì?",
+      answers: ["Sự xung đột giữa các giai cấp", "Cuộc sống trong xã hội phong kiến", "Cuộc đấu tranh giữa cái thiện và cái ác", "Vấn đề tình yêu và hôn nhân"],
+      correct: 1
+    },
+    {
+      content: "Tác phẩm 'Đoạn trường tân thanh' là của ai?",
+      answers: ["Tố Hữu", "Nguyễn Du", "Nam Cao", "Phan Bội Châu"],
+      correct: 2
+    }
+  ];
+  
+  
+  const tests = [];
+  
+  // Tạo 40 bài test
+  for (let i = 1; i <= 40; i++) {
+    const data = sample_data[Math.floor(Math.random() * sample_data.length)];
+    const answers = data.answers.map((answer, idx) => {
+      return {
+        answer,
+        ...(idx === data.correct ? { isCorrect: true } : {})
+      };
+    });
+  
+    const test = {
+      id: i,
+      testName: `Thử thách kiến thức #${i}`,
+      categoryId: i,
+      image: "https://www.w3schools.com/html/html5.gif",
+      playTime: 15,
+      playAmount: Math.floor(Math.random() * 20) + 1, // random lượt chơi từ 1 đến 20
+      questions: [
+        {
+          content: data.content,
+          answers: answers
+        }
+      ]
+    };
+  
+    tests.push(test);
+  }
+  
+// Lưu vào localStorage với key 'tests'
+localStorage.setItem('tests', JSON.stringify(tests));
+  
