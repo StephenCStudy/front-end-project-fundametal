@@ -4,7 +4,7 @@
 // mảng dữ liệu 40 đối tượng của mảng danh mục.
 
 // Dữ liệu mẫu từ data_fake.js         --- Danh mục ---
-const initialCategories = [
+const Categories = [
     { id: 1, categoryName: "Chăm sóc sức khỏe", categoryEmoji: "💊" },
     { id: 2, categoryName: "Quản lý", categoryEmoji: "📋" },
     { id: 3, categoryName: "Thiết bị điện tử", categoryEmoji: "🔋" },
@@ -51,7 +51,7 @@ const initialCategories = [
 function initializeCategories() {
     const categories = getCategoriesFromLocalStorage();
     if (categories.length === 0) {
-        saveCategoriesToLocalStorage(initialCategories);  // Lưu mảng initialCategories vào localStorage
+        saveCategoriesToLocalStorage(Categories);  // Lưu mảng initialCategories vào localStorage
     }
 }
 
@@ -200,7 +200,8 @@ const sample_data = [
       testName: `Thử thách kiến thức #${i}`,
       categoryId: i,
       image: "https://www.w3schools.com/html/html5.gif",
-      playTime: 15,
+      playTime: Math.floor(Math.random() * 20 + 1), // random thời gian từ 1 đến 20 phut
+
       playAmount: Math.floor(Math.random() * 20) + 1, // random lượt chơi từ 1 đến 20
       questions: [
         {
@@ -213,6 +214,30 @@ const sample_data = [
     tests.push(test);
   }
   
-// Lưu vào localStorage với key 'tests'
-localStorage.setItem('tests', JSON.stringify(tests));
-  
+
+// Kiểm tra nếu chưa có dữ liệu bài test trong localStorage thì lưu dữ liệu mới
+function initializeTests() {
+  const tests = getTestsFromLocalStorage();
+  if (tests.length === 0) {
+      // Lưu dữ liệu mới vào localStorage nếu chưa có
+      saveTestsToLocalStorage(sample_data);
+  }
+}
+
+// Lấy dữ liệu bài test từ localStorage
+function getTestsFromLocalStorage() {
+  return JSON.parse(localStorage.getItem('tests')) || [];
+}
+
+// Lưu bài test vào localStorage
+function saveTestsToLocalStorage(tests) {
+  localStorage.setItem('tests', JSON.stringify(tests));
+}
+
+
+
+
+// Gọi hàm khi trang tải
+window.addEventListener('DOMContentLoaded', function () {
+  initializeTests();  // Kiểm tra và lưu dữ liệu vào localStorage nếu chưa có
+});

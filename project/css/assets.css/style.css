@@ -51,83 +51,70 @@ header {
 }
 
 
-/* CSS cho phân trang và các phần tử trong bảng */
+/* Main Pagination Styles */
 .pagination {
     display: flex;
     justify-content: center;
+    gap: 10px;
     margin-top: 20px;
     position: absolute;
-    bottom: 100;
+    bottom: 100px;
     left: 500px;
-    top: 580px;
-}  
+}
 
-.pagination a {
-    display: flex;
-    justify-content: center;
+.page-link {
+    display: inline-flex;
     align-items: center;
-    width: 40px;
-    height: 40px;
-    margin: 0 5px;
-    border-radius: 4px;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
     text-decoration: none;
-    color: #333;
-    background-color: #fff;
-    border: 2px solid #ddd;  /* Boder rộng hơn */
-    transition: all 0.3s;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: all 0.2s;
+    font-size: 1.2rem; /* Standard font size for consistency */
 }
 
-.pagination a:hover {
-    background-color: #f5f5f5;
-    font-weight: bold;  /* Làm đậm chữ khi hover */
-}
-
-.pagination a.active {
-    background-color: #007bff;  /* Màu xanh khi trang được chọn */
-    border-color: #007bff;
+/* Active Page */
+.page-link.active {
+    background-color: var(--primary-color);
     color: white;
 }
 
-.pagination a.disabled {
-    pointer-events: none;
+/* Hover Effects */
+.page-link:hover:not(.active) {
+    background-color: #eee;
+}
+
+/* Disabled State */
+.page-link.disabled {
     opacity: 0.5;
+    pointer-events: none;
 }
 
-/* Các mũi tên phân trang */
-.pagination .page-link i {
-    font-size: 1.2rem;  /* Kích thước của icon */
+/* Previous and Next Buttons */
+.page-item .page-link {
+    font-size: 20px;
+    cursor: pointer;
 }
 
-/* Nút "pervious" và "next" */
-.pagination .prev,
-.pagination .next {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 30px;
-    height: 40px;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    transition: all 0.3s;
-    margin-left: 5px; 
-    margin-right: 10px;
+/* Pagination Icons (Arrows) */
+.page-item .page-link i {
+    font-size: 1.2rem;
 }
 
-.pagination .prev:hover, .pagination .next:hover {
-    background-color: #f5f5f5;
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .pagination {
+        flex-direction: column; /* Stack pagination items on smaller screens */
+    }
+
+    .page-link {
+        font-size: 1rem; /* Adjust font size for smaller screens */
+        width: 30px;
+        height: 30px;
+    }
 }
 
-/* Nút "Previous" và "Next" có mũi tên */
-.pagination .prev i, .pagination .next i {
-    font-size: 20px; /* Kích thước icon mũi tên */
-}
 
-/* Tạo hiệu ứng khi hover trên phân trang */
-.pagination .prev:hover,
-.pagination .next:hover {
-    background-color: #007bff;
-    color: white;
-    border-color: #007bff;
-}
 

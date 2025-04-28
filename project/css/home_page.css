@@ -326,3 +326,33 @@ input:hover {
 .fa-house:hover,.fa-power-off:hover,.fa-right-to-bracket:hover{
     transform: scale(1.2);
 }
+
+/* Pagination styles */
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.page-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.page-link.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.page-link:hover:not(.active) {
+    background-color: #eee;
+}

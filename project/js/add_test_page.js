@@ -15,6 +15,7 @@ const categories = [
   // Thêm các phần tử vào dropdown
   const selectElement = document.getElementById("category");
   
+  
   uniqueCategories.forEach(category => {
     const option = document.createElement("option");
     option.textContent = category;

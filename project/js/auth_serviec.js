@@ -1,9 +1,10 @@
 // auth-serviec.js - Quản lý xác thực và dữ liệu người dùng
 
-// Cấu trúc User: { id, fullname, email, password, role }
+
+
 
 // Khởi tạo mảng users với tài khoản admin nếu chưa tồn tại
-function initializeUsers() {
+function adminAccount() {
     const users = getUsersFromStorage() || [];
     
     // Kiểm tra xem tài khoản admin đã tồn tại chưa
@@ -28,8 +29,20 @@ function initializeUsers() {
 
 // Tạo ID duy nhất cho người dùng mới
 function generateUserId() {
-    return Date.now().toString(36) + Math.random().toString(36).substr(2, 5);
+    // Date.now() trả về số mili giây thời gian hiện tại
+    let timestamp = Date.now();
+
+    // Chuyển đổi dấu thời gian sang chuỗi hệ cơ số 36 (bao gồm các chữ số và chữ cái từ a-z)
+    let timestampBase36 = timestamp.toString(36);
+
+    // Sinh ra một số ngẫu nhiên trong khoảng (0, 1), sau đó chuyển nó sang chuỗi hệ cơ số 36
+    // Lấy phần số sau dấu chấm và cắt 5 ký tự ngẫu nhiên
+    let randomBase36 = Math.random().toString(36).substr(2, 5);
+
+    // Kết hợp dấu thời gian (ở hệ cơ số 36) và chuỗi ngẫu nhiên tạo ra một ID duy nhất
+    return timestampBase36 + randomBase36;
 }
+
 
 // Lấy tất cả người dùng từ localStorage
 function getUsersFromStorage() {
@@ -40,6 +53,22 @@ function getUsersFromStorage() {
 function saveUsersToStorage(users) {
     localStorage.setItem('users', JSON.stringify(users));
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Đăng nhập người dùng
 function loginUser(email, password) {
@@ -79,16 +108,55 @@ function isUserLoggedIn() {
     return false;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Lấy thông tin người dùng hiện tại đang đăng nhập
 function getCurrentUser() {
     // lấy ID người dùng hiện tại từ cả hai loại storage
     const userId = sessionStorage.getItem("currentUserId") || localStorage.getItem("currentUserId");
-    
+    console.log(userId); 
     if (!userId) return null;
     
     const users = getUsersFromStorage();
     return users.find(user => user.id === userId) || null;  //trả về mảng nếu tìm thấy id người hiện tại hoặc null.
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Đăng xuất người dùng
 function logoutUser() {
@@ -98,6 +166,17 @@ function logoutUser() {
     localStorage.removeItem("isLogin");
     localStorage.removeItem("currentUserId");
 }
+
+
+
+
+
+
+
+
+
+
+
 
 // Đăng ký người dùng mới
 function registerUser(fullname, email, password) {
@@ -124,8 +203,24 @@ function registerUser(fullname, email, password) {
     return { success: true, user: newUser };
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Khởi tạo users khi script được load
-initializeUsers();
+adminAccount();
 
 // Export các hàm để sử dụng trong file khác
 window.authService = {

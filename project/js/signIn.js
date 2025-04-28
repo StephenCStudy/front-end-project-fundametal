@@ -6,6 +6,9 @@ if (document.querySelector('.registration-form')) {
         });
     });
 
+
+
+
     const form = document.querySelector('.registration-form');
     const formGroups = document.querySelectorAll('.form-group');
     const fullnameError = formGroups[0].querySelector('.danger');
@@ -13,15 +16,22 @@ if (document.querySelector('.registration-form')) {
     const passwordError = formGroups[2].querySelector('.danger');
     const confirmPasswordError = formGroups[3].querySelector('.danger');
 
+
+
+
     form.addEventListener('submit', function(event) {
         event.preventDefault();
         const fullname = document.getElementById('fullname').value;
         const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
         const confirmPassword = document.getElementById('confirm-password').value;
-
         let hasError = false;
 
+
+
+
+
+        // Kiểm tra tên.
         if (fullname.trim() === '') {
             fullnameError.textContent = "Họ và tên là bắt buộc";
             fullnameError.style.display = 'block';
@@ -30,6 +40,11 @@ if (document.querySelector('.registration-form')) {
             fullnameError.style.display = 'none';
         }
 
+
+
+
+
+        //kiểm tra email.
         const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
         if (email.trim() === '') {
             emailError.textContent = "Email là bắt buộc";
@@ -47,6 +62,11 @@ if (document.querySelector('.registration-form')) {
             emailError.style.display = 'none';
         }
 
+
+
+
+
+        // Kiểm tra mật khẩu.
         if (password === '') {
             passwordError.textContent = "Mật khẩu là bắt buộc";
             passwordError.style.display = 'block';
@@ -71,15 +91,21 @@ if (document.querySelector('.registration-form')) {
             confirmPasswordError.style.display = 'none';
         }
 
+
+
+
+
+        // sài hàm đăng ký người dùng mới. trong auth_service.js
+        // Nếu không có lỗi, gọi hàm đăng ký người dùng mới
         if (!hasError) {
             const result = window.authService.registerUser(fullname, email, password);
             
             if (result.success) {
-                // alert('Đăng ký thành công!');
-                form.reset();
+                console.log("Đăng ký thành công:", result.user);
+                form.reset();  //reset dữ liệu form
                 window.location.href = "../auth/login_page.html"; // Chuyển hướng đến trang đăng nhập
             } else {
-                emailError.textContent = result.message;
+                emailError.textContent = result.message; 
                 emailError.style.display = 'block';
             }
         }

@@ -1,4 +1,4 @@
-// session-handler.js - Xử lý trạng thái phiên đăng nhập
+// session-handel.js - Xử lý trạng thái phiên đăng nhập
 
 // Đặt event listener khi trang bị đóng
 window.addEventListener('beforeunload', function() {

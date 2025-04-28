@@ -1,4 +1,6 @@
 // Kiểm tra nếu đang ở trang đăng nhập trước khi thực thi mã này
+
+
 if (document.getElementById("email") && document.getElementById("password") && document.getElementById("btn")) {
     let email = document.getElementById("email");
     let password = document.getElementById("password");
@@ -80,6 +82,20 @@ if (document.getElementById("email") && document.getElementById("password") && d
     });
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Kiểm tra người dùng đã đăng nhập chưa và cập nhật nút đăng nhập/đăng xuất cho home_page và index 
 function updateLoginLogoutButtons() {
     const logoutBtn = document.getElementById("isLoginBtn1");
@@ -103,6 +119,10 @@ function updateLoginLogoutButtons() {
     }
 }
 
+
+
+
+
 // Gọi hàm khi trang được tải
 window.addEventListener("DOMContentLoaded", updateLoginLogoutButtons);
 
@@ -112,6 +132,10 @@ window.logout = function () {
     window.location.href = "../user/home_page.html"; // Chuyển hướng về trang chủ sau khi đăng xuất
 };
 
+
+
+
+// load trang và nút đăng xuất
 document.addEventListener("DOMContentLoaded", function () {
     const logoutBtn = document.getElementById("isLoginBtn1");
     if (logoutBtn) {
