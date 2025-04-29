@@ -19,7 +19,13 @@ function adminAccount() {
             password: "123456",
             role: "admin"
         });
-        
+        users.push({
+            id: generateUserId(),
+            fullname: "User",
+            email: "user@gmail.com",
+            password: "123456",
+            role: "user"
+        });
         // Lưu users vào storage
         saveUsersToStorage(users);
     }

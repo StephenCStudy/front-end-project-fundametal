@@ -161,7 +161,7 @@ footer {
     text-align: center;
     padding: 15px 0;
     font-size: 0.8rem;
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 100%;
 }
@@ -188,6 +188,9 @@ footer {
     cursor: pointer;
     transition-duration: 0.3s;
     overflow: hidden;
+    position: fixed;
+    left: 250px;
+    top: 600px;
 }
 
 .IconContainer {

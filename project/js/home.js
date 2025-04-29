@@ -8,7 +8,7 @@ filterButtons.forEach(btn => {
 
         // Thêm lớp 'active' vào nút đã được bấm
         btn.classList.add('active');
-        
+
         // Lưu lựa chọn sắp xếp vào sessionStorage
         const sortType = btn.innerText.includes('Lượt chơi tăng dần') ? 'asc' : 'desc';
         sessionStorage.setItem('sortOption', sortType);
@@ -60,7 +60,7 @@ function renderHomePage() {
     const tests = getTestsFromLocalStorage();
     const tableBody = document.querySelector('.quiz-grid');
     tableBody.innerHTML = ''; // Xóa nội dung cũ
-   
+
     //phân trang 
     const start = (currentPage - 1) * itemsPerPage;
     const end = start + itemsPerPage;
@@ -80,7 +80,7 @@ function renderHomePage() {
                     <h3>${test.testName}</h3>
                     <p>${test.questions.length} câu hỏi • ${test.playAmount} lượt chơi</p>
                 </div>
-                <a href="../user/doTest_page.html"><button class="play-now-btn" >Chơi</button> </a>
+                <a href="../user/doTest_page.html" data-bs-toggle="modal" data-bs-target="#note"><button class="play-now-btn" >Chơi</button> </a>
                 
             </div>
         `;
@@ -287,7 +287,7 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
 
 
 // Gọi hàm render khi trang tải
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     renderHomePage();
 });
 
