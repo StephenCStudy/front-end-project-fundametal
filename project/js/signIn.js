@@ -98,7 +98,7 @@ if (document.querySelector('.registration-form')) {
         // sài hàm đăng ký người dùng mới. trong auth_service.js
         // Nếu không có lỗi, gọi hàm đăng ký người dùng mới
         if (!hasError) {
-            const result = window.authService.registerUser(fullname, email, password);
+            const result = window.authService.createNewAccount(fullname, email, password);
             
             if (result.success) {
                 console.log("Đăng ký thành công:", result.user);

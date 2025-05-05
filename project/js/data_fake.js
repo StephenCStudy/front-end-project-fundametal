@@ -1,9 +1,21 @@
-// dữ liệu mẫu khi chạy chương tình.
+
+// =============================================================================
+
+/**
+ * DATA_FAKE.JS
+ * File chứa dữ liệu mẫu và các hàm quản lý dữ liệu cho ứng dụng
+ */
+// =============================================================================
 
 
-// mảng dữ liệu 40 đối tượng của mảng danh mục.
 
-// Dữ liệu mẫu từ data_fake.js         --- Danh mục ---
+// =============================================================================
+/**
+ * PHẦN 1: DỮ LIỆU DANH MỤC (CATEGORIES)
+ */
+// =============================================================================
+
+// Mảng dữ liệu 40 đối tượng của mảng danh mục
 const Categories = [
   { id: 1, categoryName: "Chăm sóc sức khỏe", categoryEmoji: "💊" },
   { id: 2, categoryName: "Quản lý", categoryEmoji: "📋" },
@@ -47,30 +59,15 @@ const Categories = [
   { id: 40, categoryName: "Chăm sóc cây trồng", categoryEmoji: "🌱" }
 ];
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * CÁC HÀM XỬ LÝ DANH MỤC
+ */
 
 // Kiểm tra nếu chưa có dữ liệu danh mục trong localStorage thì lưu dữ liệu mặc định
 function initializeCategories() {
   const categories = getCategoriesFromLocalStorage();
   if (categories.length === 0) {
-      saveCategoriesToLocalStorage(Categories);  // Lưu mảng initialCategories vào localStorage
+    saveCategoriesToLocalStorage(Categories);  // Lưu mảng Categories vào localStorage
   }
 }
 
@@ -84,10 +81,6 @@ function saveCategoriesToLocalStorage(categories) {
   localStorage.setItem('Category', JSON.stringify(categories));
 }
 
-// Gọi hàm khi trang tải
-window.addEventListener('DOMContentLoaded', function () {
-  initializeCategories();  // Kiểm tra và lưu dữ liệu vào localStorage nếu chưa có
-});
 
 
 
@@ -110,42 +103,13 @@ window.addEventListener('DOMContentLoaded', function () {
 
 
 
+// =============================================================================
+/**
+ * PHẦN 2: DỮ LIỆU BÀI TEST (QUESTIONS)
+ */
+// =============================================================================
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Dữ liệu mẫu từ data_fake.js         --- bài test ---
+// Dữ liệu mẫu câu hỏi
 const sample_data = [
   // Câu hỏi về công nghệ
   {
@@ -257,57 +221,92 @@ const sample_data = [
 
 
 
+
+
+
+
+
+// =============================================================================
+/**
+ * PHẦN 3: TẠO BÀI TEST
+ */
+// =============================================================================
+
 // Tạo mảng chứa 40 bài test
 const initialTests = [];
 
-// Tạo 40 bài test
+// Tạo 40 bài test từ dữ liệu mẫu
 for (let i = 1; i <= 40; i++) {
-const data = sample_data[Math.floor(Math.random() * sample_data.length)];
-const answers = data.answers.map((answer, idx) => {
-  return {
-    answer,
-    ...(idx === data.correct - 1 ? { isCorrect: true } : {})
+  const data = sample_data[Math.floor(Math.random() * sample_data.length)];
+  const answers = data.answers.map((answer, idx) => {
+    return {
+      answer,
+      ...(idx === data.correct - 1 ? { isCorrect: true } : {})
+    };
+  });
+
+  const test = {
+    id: i,
+    testName: `Thử thách kiến thức #${i}`,
+    categoryId: i,
+    image: "https://www.w3schools.com/html/html5.gif",
+    playTime: Math.floor(Math.random() * 20 + 1), // random thời gian từ 1 đến 20 phút
+    playAmount: Math.floor(Math.random() * 20) + 1, // random lượt chơi từ 1 đến 20
+    questions: [
+      {
+        content: data.content,
+        answers: answers
+      }
+    ]
   };
-});
 
-const test = {
-  id: i,
-  testName: `Thử thách kiến thức #${i}`,
-  categoryId: i,
-  image: "https://www.w3schools.com/html/html5.gif",
-  playTime: Math.floor(Math.random() * 20 + 1), // random thời gian từ 1 đến 20 phút
-  playAmount: Math.floor(Math.random() * 20) + 1, // random lượt chơi từ 1 đến 20
-  questions: [
-    {
-      content: data.content,
-      answers: answers
-    }
-  ]
-};
-
-initialTests.push(test);
+  initialTests.push(test);
 }
+
+/**
+ * CÁC HÀM XỬ LÝ BÀI TEST
+ */
 
 // Kiểm tra nếu chưa có dữ liệu bài test trong localStorage thì lưu dữ liệu mới
 function initializeTests() {
-const tests = getTestsFromLocalStorage();
-if (tests.length === 0) {
+  const tests = getTestsFromLocalStorage();
+  if (tests.length === 0) {
     // Lưu toàn bộ mảng initialTests vào localStorage nếu chưa có
     saveTestsToLocalStorage(initialTests);
-}
+  }
 }
 
 // Lấy dữ liệu bài test từ localStorage
 function getTestsFromLocalStorage() {
-return JSON.parse(localStorage.getItem('tests')) || [];
+  return JSON.parse(localStorage.getItem('tests')) || [];
 }
 
 // Lưu bài test vào localStorage
 function saveTestsToLocalStorage(tests) {
-localStorage.setItem('tests', JSON.stringify(tests));
+  localStorage.setItem('tests', JSON.stringify(tests));
 }
 
-// Gọi hàm khi trang tải
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// =============================================================================
+/**
+ * PHẦN 4: KHỞI TẠO DỮ LIỆU KHI TRANG TẢI
+ */
+// =============================================================================
+// Gọi các hàm khởi tạo khi trang tải
 window.addEventListener('DOMContentLoaded', function () {
-initializeTests();  // Kiểm tra và lưu dữ liệu vào localStorage nếu chưa có
+  initializeCategories();  // Khởi tạo dữ liệu danh mục
+  initializeTests();       // Khởi tạo dữ liệu bài test
 });
