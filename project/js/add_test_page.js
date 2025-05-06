@@ -403,7 +403,7 @@ function SaveTest() {
             categoryId: selectedCategoryId,
             questions: questionCollection,
             playAmount: 0, // Mặc định cho bài kiểm tra mới
-            image: "https://www.w3schools.com/html/html5.gif"
+            image: "https://as1.ftcdn.net/v2/jpg/03/91/06/82/1000_F_391068222_eOeQFmaRo8q1INpa6LWO1vdCORl0Z6p3.jpg"
         };
         
         // Lấy các bài kiểm tra hiện có từ localStorage

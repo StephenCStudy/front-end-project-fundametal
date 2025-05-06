@@ -1,4 +1,7 @@
-:root {
+/* ======================================
+   CSS VARIABLES
+   ====================================== */
+   :root {
     --primary-color: #5e35b1;
     --primary-hover: #4527a0;
     --secondary-color: #f8c822;
@@ -9,14 +12,19 @@
     --success-color: #4caf50;
 }
 
-
+/* ======================================
+   GENERAL STYLES
+   ====================================== */
 body {
+    font-family: "Inter", sans-serif;
     background-color: var(--bg-color);
     color: var(--text-color);
     line-height: 1.6;
 }
 
-/* Header Styles */
+/* ======================================
+   HEADER STYLES
+   ====================================== */
 .header {
     display: flex;
     justify-content: space-between;
@@ -33,20 +41,6 @@ body {
     margin-left: 16px;
 }
 
-/* Search Bar */
-.search-bar {
-    flex-grow: 1;
-    display: flex;
-    justify-content: center;
-}
-
-.input {
-    width: 80%;
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 20px;
-}
-
 /* Navigation Links */
 .nav-links {
     display: flex;
@@ -54,7 +48,6 @@ body {
     align-items: center;
 }
 
-/* Style for each link */
 .nav-links a {
     color: #333;
     text-decoration: none;
@@ -65,30 +58,83 @@ body {
     color: #4a69bd;
 }
 
-
-
-/* navbar home // login // logout */
-#home{
+/* Navbar home/login/logout */
+#home {
     color: var(--primary-color);
     font-size: 16px;
-    position:relative;
+    position: relative;
     top: -5px;
     left: -30px;
 }
-#isLoginBtn2,#isLoginBtn1{
+
+#isLoginBtn2, #isLoginBtn1 {
     font-size: 16px;
-    position:relative;
+    position: relative;
     top: -5px;
     left: -25px;
 }
 
-/* Main Content Styles */
+/* ======================================
+   SEARCH BAR STYLES
+   ====================================== */
+.search-bar {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.group {
+    display: flex;
+    line-height: 28px;
+    align-items: center;
+    position: relative;
+    max-width: 190px;
+}
+
+.input {
+    width: 300px;
+    height: 40px;
+    line-height: 28px;
+    padding: 0 1rem;
+    padding-left: 2.5rem;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    outline: none;
+    background-color: #f3f3f4;
+    color: #0d0c22;
+    transition: .3s ease;
+}
+
+.input::placeholder {
+    color: #9e9ea7;
+}
+
+.input:focus,
+input:hover {
+    outline: none;
+    border-color: rgba(234, 76, 137, 0.4);
+    background-color: #fff;
+    box-shadow: 0 0 0 4px rgb(234 76 137 / 10%);
+}
+
+.icon {
+    position: absolute;
+    left: 1rem;
+    fill: #9e9ea7;
+    width: 1rem;
+    height: 1rem;
+}
+
+/* ======================================
+   MAIN CONTENT STYLES
+   ====================================== */
 main {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
 }
 
+/* Quiz Container */
 .quiz-container {
     background-color: var(--primary-color);
     color: white;
@@ -118,7 +164,7 @@ main {
     transform: scale(1.05);
 }
 
-/* Featured Quizzes */
+/* Section Title */
 .section-title {
     margin-bottom: 20px;
     display: flex;
@@ -126,6 +172,7 @@ main {
     gap: 10px;
 }
 
+/* Filter Section */
 .filter-section {
     display: flex;
     align-items: center;
@@ -148,7 +195,9 @@ main {
     border-color: var(--primary-color);
 }
 
-/* Quiz Grid Styles */
+/* ======================================
+   QUIZ GRID STYLES
+   ====================================== */
 .quiz-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -225,109 +274,9 @@ main {
     font-weight: 500;
 }
 
-/* Pagination Styles */
-.pagination {
-    display: flex;
-    justify-content: center;
-    gap: 5px;
-    margin-top: 20px;
-}
-
-.page-link {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    text-decoration: none;
-    color: var(--text-color);
-    font-weight: 500;
-    transition: all 0.2s;
-}
-
-.page-link.active {
-    background-color: var(--primary-color);
-    color: white;
-}
-
-.page-link:hover:not(.active) {
-    background-color: #eee;
-}
-
-/* Footer Styles */
-footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #333;
-    color: white;
-    font-size: 14px;
-}
-
-
-/* Search Bar Styles */
-.group {
-    display: flex;
-    line-height: 28px;
-    align-items: center;
-    position: relative;
-    max-width: 190px;
-}
-
-.input {
-    width: 100%;
-    height: 40px;
-    line-height: 28px;
-    padding: 0 1rem;
-    padding-left: 2.5rem;
-    border: 2px solid transparent;
-    border-radius: 8px;
-    outline: none;
-    background-color: #f3f3f4;
-    color: #0d0c22;
-    transition: .3s ease;
-}
-
-.input::placeholder {
-    color: #9e9ea7;
-}
-
-.input:focus,
-input:hover {
-    outline: none;
-    border-color: rgba(234, 76, 137, 0.4);
-    background-color: #fff;
-    box-shadow: 0 0 0 4px rgb(234 76 137 / 10%);
-}
-
-.icon {
-    position: absolute;
-    left: 1rem;
-    fill: #9e9ea7;
-    width: 1rem;
-    height: 1rem;
-}
-/* ................... */
-
-.fa-star{
-    color: #f8c822;
-}
-  
-
-/* icon glass */
-.fa-magnifying-glass{
-    transform: scale(1.2);
-    margin-left: 12px;
-}
-.fa-magnifying-glass:hover{
-    cursor: pointer;
-    transform: scale(1.4);
-}
-.fa-house:hover,.fa-power-off:hover,.fa-right-to-bracket:hover{
-    transform: scale(1.2);
-}
-
-/* Pagination styles */
+/* ======================================
+   PAGINATION STYLES
+   ====================================== */
 .pagination {
     display: flex;
     justify-content: center;
@@ -355,4 +304,36 @@ input:hover {
 
 .page-link:hover:not(.active) {
     background-color: #eee;
+}
+
+/* ======================================
+   ICON STYLES
+   ====================================== */
+.fa-star {
+    color: #f8c822;
+}
+
+.fa-magnifying-glass {
+    transform: scale(1.2);
+    margin-left: 12px;
+}
+
+.fa-magnifying-glass:hover {
+    cursor: pointer;
+    transform: scale(1.4);
+}
+
+.fa-house:hover, .fa-power-off:hover, .fa-right-to-bracket:hover {
+    transform: scale(1.2);
+}
+
+/* ======================================
+   FOOTER STYLES
+   ====================================== */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+    font-size: 14px;
 }

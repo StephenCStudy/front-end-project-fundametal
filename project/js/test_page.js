@@ -78,14 +78,16 @@ function getSortOption() {
 // Hàm render bảng test từ dữ liệu bài test
 function renderTestTable(tests = null) {
     if (!tests) {
-
-        tests = getTestsFromLocalStorage();
+        tests = getTestsFromLocalStorage(); // Lấy dữ liệu từ localStorage
     }
 
+    // Sắp xếp toàn bộ dữ liệu theo tiêu chí hiện tại
+    tests = sortTests(tests, currentSortType);
+
+    // Lọc dữ liệu theo từ khóa tìm kiếm (nếu có)
     const searchQuery = getSearchQuery().toLowerCase();
     const filteredTests = tests.filter(test => 
         test && test.testName && typeof test.testName === 'string' && 
-
         test.testName.toLowerCase().includes(searchQuery)
     );
 
@@ -93,18 +95,16 @@ function renderTestTable(tests = null) {
     tableBody.innerHTML = '';
 
     // Phân trang
-    const currentPage = getCurrentPage();
+    const currentPage = getCurrentPage(); // Lấy trang hiện tại
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
-
-
 
     let testsToRender = [];
     if (startIndex < filteredTests.length) {
         testsToRender = filteredTests.slice(startIndex, Math.min(endIndex, filteredTests.length));
     }
 
-    // Duyệt qua các bài test đã lọc và hiển thị
+    // Render dữ liệu cho trang hiện tại
     testsToRender.forEach(test => {
         const row = document.createElement('tr');
         row.innerHTML = `
@@ -113,17 +113,15 @@ function renderTestTable(tests = null) {
             <td>${renderCategoryNameEmoji(test.categoryId)}</td>
             <td>${test.questions ? test.questions.length : 0}</td>
             <td>${test.playTime || 0} phút</td>
-
             <td class="actions">
                 <button class="btn-edit" onclick="editTest(${test.id})">Sửa</button>
                 <button class="btn-delete" data-bs-toggle="modal" data-bs-target="#deleteTest" onclick="confirmDeleteTest(${test.id})">Xóa</button>
             </td>
         `;
-
         tableBody.appendChild(row);
     });
 
-    paginationPage(filteredTests);
+    paginationPage(filteredTests); // Cập nhật phân trang
 }
 
 
@@ -238,30 +236,45 @@ function searchTestByName() {
 
     );
     renderTestTable(filteredTests);
+    sessionStorage.setItem('currentPage', 1); // Đặt lại trang về 1 khi tìm kiếm
+
 }
+
+
+// Thay đổi tiêu chí sắp xếp
+function changeSortType(newSortType) {
+    currentSortType = newSortType;
+    sessionStorage.setItem('sortOption', newSortType); // Lưu vào session
+    renderTestTable();
+    // console.log(sessionStorage.getItem('sortOption'));
+    // console.log(currentSortType);
+}
+
+
+let currentSortType = sessionStorage.getItem('sortOption') || "Tên bài test"; // Lưu tiêu chí sắp xếp
 
 // Hàm sắp xếp các bài test
 function sortTests(tests, sortType) {
+    const sortedTests = [...tests]; // Tạo bản sao
     switch (sortType) {
         case "Tên bài test":
-            tests.sort((a, b) => {
+            sortedTests.sort((a, b) => {
                 const nameA = a && a.testName && typeof a.testName === 'string' ? a.testName.toLowerCase() : '';
                 const nameB = b && b.testName && typeof b.testName === 'string' ? b.testName.toLowerCase() : '';
-                return nameA.localeCompare(nameB);
-                
+                return nameA.localeCompare(nameB);                
             });
             break;
 
         case "Thời gian":
-            tests.sort((a, b) => (a.playTime || 0) - (b.playTime || 0));
+            sortedTests.sort((a, b) => (a.playTime || 0) - (b.playTime || 0));
             break;
 
         case "Số câu hỏi":
-            tests.sort((a, b) => (a.questions ? a.questions.length : 0) - (b.questions ? b.questions.length : 0));
+            sortedTests.sort((a, b) => (a.questions ? a.questions.length : 0) - (b.questions ? b.questions.length : 0));
             break;
 
         case "Danh mục":
-            tests.sort((a, b) => {
+            sortedTests.sort((a, b) => {
                 const catA = renderCategoryNameEmoji(a.categoryId).toLowerCase();
                 const catB = renderCategoryNameEmoji(b.categoryId).toLowerCase();
                 return catA.localeCompare(catB);
@@ -270,9 +283,9 @@ function sortTests(tests, sortType) {
             break;
         default:
 
-            return tests;
+        return sortedTests;
     }
-    return tests;
+    return sortedTests;
 }
 
 

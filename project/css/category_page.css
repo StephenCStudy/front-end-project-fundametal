@@ -1,5 +1,7 @@
-
-body {
+/* ======================================
+   GENERAL STYLES
+   ====================================== */
+   body {
     background-color: #f5f5f5;
     color: #333;
     line-height: 1.6;
@@ -22,8 +24,9 @@ h1 {
     color: #333;
 }
 
-
-/* Table Styles */
+/* ======================================
+   TABLE STYLES
+   ====================================== */
 .table-container {
     background-color: #fff;
     border-radius: 5px;
@@ -55,6 +58,9 @@ h1 {
     width: 180px;
 }
 
+/* ======================================
+   BUTTON STYLES - Generic
+   ====================================== */
 /* Action Buttons in Table */
 .actions {
     display: flex;
@@ -88,13 +94,105 @@ h1 {
     background-color: #c82333;
 }
 
+/* ======================================
+   BUTTON STYLES - Animated
+   ====================================== */
+.button {
+    position: relative;
+    width: 150px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border: none;
+    background-color: blue;
+    margin-bottom: 40px;
+}
+  
+.button, .button__icon, .button__text {
+    transition: all 0.3s;
+}
+  
+.button .button__text {
+    transform: translateX(30px);
+    color: #fff;
+    font-weight: 600;
+}
+  
+.button .button__icon {
+    position: absolute;
+    transform: translateX(109px);
+    height: 100%;
+    width: 39px;
+    background-color: blue;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+  
+.button .svg {
+    width: 30px;
+    stroke: #fff;
+}
+  
+.button:hover {
+    background: blue;
+}
+  
+.button:hover .button__text {
+    color: transparent;
+}
+  
+.button:hover .button__icon {
+    width: 148px;
+    transform: translateX(0);
+}
+  
+.button:active .button__icon {
+    background-color: #2e8644;
+}
+  
+.button:active {
+    border: 1px solid #2e8644;
+}
 
-/* Icons */
+/* ======================================
+   ICONS
+   ====================================== */
 i {
     margin-right: 8px;
 }
 
-/* Footer */
+/* ======================================
+   PAGINATION
+   ====================================== */
+.pagination a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #666;
+}
+
+.pagination a.active {
+    background-color: #4a69bd;
+    border-color: #4a69bd;
+    color: white;
+}
+
+.pagination a:hover:not(.active) {
+    background-color: #f0f0f0;
+}
+
+/* ======================================
+   FOOTER
+   ====================================== */
 footer {
     background-color: #1a1a1a;
     color: #e0e0e0;
@@ -105,95 +203,3 @@ footer {
     bottom: 0;
     width: 100%;
 }
-
-.pagination a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  background-color: white;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  text-decoration: none;
-  color: #666;
-}
-
-.pagination a.active {
-  background-color: #4a69bd;
-  border-color: #4a69bd;
-  color: white;
-}
-
-.pagination a:hover:not(.active) {
-  background-color: #f0f0f0;
-}
-
-
-
-.button {
-    position: relative;
-    width: 150px;
-    height: 40px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    /* border: 1px solid #34974d; */
-    border: none;
-    /* background-color: #3aa856; */
-    background-color: blue;
-    margin-bottom: 40px;
-  }
-  
-  .button, .button__icon, .button__text {
-    transition: all 0.3s;
-  }
-  
-  .button .button__text {
-    transform: translateX(30px);
-    color: #fff;
-    font-weight: 600;
-  }
-  
-  .button .button__icon {
-    position: absolute;
-    transform: translateX(109px);
-    height: 100%;
-    width: 39px;
-    /* background-color: #34974d; */
-    background-color: blue;
-    /* border: 1px solid black; */
-    border: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .button .svg {
-    width: 30px;
-    stroke: #fff;
-  }
-  
-  .button:hover {
-    background: blue;
-  }
-  
-  .button:hover .button__text {
-    color: transparent;
-  }
-  
-  .button:hover .button__icon {
-    width: 148px;
-    transform: translateX(0);
-  }
-  
-  .button:active .button__icon {
-    background-color: #2e8644;
-  }
-  
-  .button:active {
-    border: 1px solid #2e8644;
-  }
-
-
-

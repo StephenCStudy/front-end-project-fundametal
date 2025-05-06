@@ -1,9 +1,24 @@
-
-
-body {
+/* ======================================
+   GENERAL STYLES
+   ====================================== */
+   body {
     background-color: #f5f5f5;
 }
 
+.container {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 1rem;
+}
+
+.page-title {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+}
+
+/* ======================================
+   NAVIGATION
+   ====================================== */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -32,17 +47,9 @@ body {
     color: white;
 }
 
-.container {
-    max-width: 1000px;
-    margin: 2rem auto;
-    padding: 1rem;
-}
-
-.page-title {
-    font-size: 1.8rem;
-    margin-bottom: 1.5rem;
-}
-
+/* ======================================
+   FORM ELEMENTS
+   ====================================== */
 .form-group {
     margin-bottom: 1.5rem;
 }
@@ -70,6 +77,17 @@ body {
     flex: 1;
 }
 
+.select-dropdown {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    background-color: white;
+}
+
+/* ======================================
+   BUTTON STYLES - Generic
+   ====================================== */
 .btn {
     padding: 0.5rem 1rem;
     border: none;
@@ -114,37 +132,6 @@ body {
     background-color: #ffca2c;
 }
 
-.questions-section {
-    margin-top: 2rem;
-}
-
-.section-title {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-}
-
-.questions-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 1rem;
-}
-
-.questions-table th,
-.questions-table td {
-    padding: 0.75rem;
-    text-align: left;
-    border-bottom: 1px solid #dee2e6;
-}
-
-.questions-table th {
-    background-color: #212529;
-    color: white;
-}
-
-.questions-table tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
 .action-buttons {
     display: flex;
     gap: 0.5rem;
@@ -155,27 +142,9 @@ body {
     margin-top: 1.5rem;
 }
 
-footer {
-    background-color: #1a1a1a;
-    color: #e0e0e0;
-    text-align: center;
-    padding: 15px 0;
-    font-size: 0.8rem;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
-
-.select-dropdown {
-    width: 100%;
-    padding: 0.5rem;
-    border: 1px solid #ced4da;
-    border-radius: 4px;
-    background-color: white;
-}
-
-
-/* thư viện nút lưu */
+/* ======================================
+   BUTTON STYLES - Special (Bookmark)
+   ====================================== */
 .bookmarkBtn {
     width: 100px;
     height: 40px;
@@ -239,9 +208,9 @@ footer {
     transition-duration: 0.3s;
 }
 
-
-
-/* icon trash can */
+/* ======================================
+   ICONS
+   ====================================== */
 .fa-trash-can {
     transform: scale(1.2);
     position: absolute;
@@ -253,6 +222,50 @@ footer {
     transform: scale(1.5);
 }
 
+/* ======================================
+   TABLE STYLES
+   ====================================== */
+.questions-section {
+    margin-top: 2rem;
+}
 
+.section-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
 
+.questions-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
 
+.questions-table th,
+.questions-table td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.questions-table th {
+    background-color: #212529;
+    color: white;
+}
+
+.questions-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* ======================================
+   FOOTER
+   ====================================== */
+footer {
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 0.8rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}

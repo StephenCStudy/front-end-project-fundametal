@@ -249,7 +249,7 @@ for (let i = 1; i <= 40; i++) {
     id: i,
     testName: `Thử thách kiến thức #${i}`,
     categoryId: i,
-    image: "https://www.w3schools.com/html/html5.gif",
+    image: "https://png.pngtree.com/png-clipart/20210509/original/pngtree-quiz-png-transparent-background-png-image_6272209.jpg",
     playTime: Math.floor(Math.random() * 20 + 1), // random thời gian từ 1 đến 20 phút
     playAmount: Math.floor(Math.random() * 20) + 1, // random lượt chơi từ 1 đến 20
     questions: [

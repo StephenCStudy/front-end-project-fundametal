@@ -176,6 +176,7 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
 // =============================================================================
 // Hàm tìm kiếm bài test theo tên
 document.querySelector('.search-bar .fa-magnifying-glass').addEventListener('click', () => {
+    currentPage = 1; // Đặt lại trang về 1 khi tìm kiếm
     const searchTerm = document.querySelector('.input').value.toLowerCase();
     const tests = getTestsFromLocalStorage();
     const filteredTests = tests.filter(test => test.testName.toLowerCase().includes(searchTerm));
@@ -200,6 +201,7 @@ document.querySelector('.search-bar .fa-magnifying-glass').addEventListener('cli
         `;
 
         tableBody.appendChild(quizItem);
+        
     });
 });
 
